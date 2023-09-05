@@ -1,0 +1,39 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : martes, 5 de septiembre de 2023 10:39:32
+   Source : C:\Users\Oscar\Desktop\proyecto\data\
+     Dest : C:\Users\Oscar\Desktop\proyecto_final\proyecto\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   1	C:\Users\Oscar\Desktop\proyecto\data\
+	*EXTRA Dir        -1	C:\Users\Oscar\Desktop\proyecto_final\proyecto\.git\
+	*EXTRA Dir        -1	C:\Users\Oscar\Desktop\proyecto_final\proyecto\app\
+	*EXTRA Dir        -1	C:\Users\Oscar\Desktop\proyecto_final\proyecto\data\
+	*EXTRA Dir        -1	C:\Users\Oscar\Desktop\proyecto_final\proyecto\eda\
+	  *EXTRA File 		      12	.gitignore
+	  *EXTRA File 		       2	Jose
+	  *EXTRA File 		       0	log.txt
+	  *EXTRA File 		      63	README.md
+	    New File  		      12	example.txt100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         0         1         0         0         4
+   Files :         1         1         0         0         0         4
+   Bytes :        12        12         0         0         0        77
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :              12.000 Bytes/sec.
+   Speed :               0,687 MegaBytes/min.
+   Ended : martes, 5 de septiembre de 2023 10:39:32
+
