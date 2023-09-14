@@ -1,2 +1,1 @@
-# Proyecto final Codenotch - Coches de segunda mano
-Proyecto de machine learning sobre anuncios de coches de segunda mano en España. El dataset es analizado en la carpeta EDA para prepararlo para entrenar el machine learning. Concretamente, analizamos seis modelos del cual elegimos el que tiene menor MAE. Este es exportardo y usado en una presentacion final para que el usuario tenga una interfaz donde introducir los datos de su coche y obtener una estimacion del precio óptimo para anunciar. Finalmente, en el mismo Streamlit, dejamos un estudio final hecho en Power BI sobre los datos macro en España.
+# The result of this project is to have a predictor in streamlit to know how much our car is worth in the current second-hand market.
