@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
-from PIL import Image
+#from PIL import Image
 import requests
 import pickle
 from sklearn import preprocessing
