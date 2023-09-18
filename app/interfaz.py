@@ -8,10 +8,6 @@ import pickle
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 
-#[theme]
-#backgroundColor="#0E117"   <- de la web en ejecucion arriba a la derecha en settings --> theme
-
-
 st.markdown(
     """
     <style>
@@ -43,8 +39,8 @@ st.subheader('¿Por cuánto puedes anunciar tu vehículo?')
 st.markdown('Con nuestra aplicacion puedes saber el precio óptimo para vender tu coche')
 st.markdown('¡Introduce los datos!')
 
-image = Image.open("coches.jpeg")
-st.image(image, caption=None, width=400, output_format="JPEG")
+#image = Image.open("coches.jpeg")
+#st.image(image, caption=None, width=400, output_format="JPEG")
 
 marca = st.selectbox('Elige una marca', marcas)
 km = st.slider('¿Cuántos kms tiene?', 10000, 350000, 100000)
