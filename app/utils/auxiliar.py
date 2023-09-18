@@ -1,9 +1,7 @@
 
 import pandas as pd 
 import numpy as np 
-import matplotlib.pyplot as plt
 import pickle
-import joblib
 from sklearn.cluster import KMeans
 from sklearn.metrics import precision_score
 from sklearn import preprocessing
