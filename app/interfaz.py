@@ -43,7 +43,7 @@ st.subheader('¿Por cuánto puedes anunciar tu vehículo?')
 st.markdown('Con nuestra aplicacion puedes saber el precio óptimo para vender tu coche')
 st.markdown('¡Introduce los datos!')
 
-image = Image.open("coches.jpeg")
+image = Image.open("utils/coches.jpeg")
 st.image(image, caption=None, width=400, output_format="JPEG")
 
 marca = st.selectbox('Elige una marca', marcas)
