@@ -6,3 +6,5 @@ numpy
 altair
 requests
 validators
+PIL
+app.utils.auxiliar
