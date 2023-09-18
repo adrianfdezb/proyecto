@@ -6,4 +6,3 @@ numpy
 altair
 requests
 validators
-app.utils.auxiliar
