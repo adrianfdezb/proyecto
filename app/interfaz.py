@@ -43,7 +43,7 @@ st.subheader('¿Por cuánto puedes anunciar tu vehículo?')
 st.markdown('Con nuestra aplicacion puedes saber el precio óptimo para vender tu coche')
 st.markdown('¡Introduce los datos!')
 
-image = Image.open("./utils/coches.jpeg")
+image = Image.open("https://www.autopista.es/uploads/s1/57/06/44/5/article-10-diez-coches-segunda-mano-ocasion-interesantes-buen-precio-103550-552e7f79ccec2.jpeg")
 st.image(image, caption=None, width=400, output_format="JPEG")
 
 marca = st.selectbox('Elige una marca', marcas)
