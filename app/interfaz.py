@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
-#from PIL import Image
+from PIL import Image
 import requests
 import pickle
 from sklearn import preprocessing
@@ -38,6 +38,9 @@ st.subheader('¿Por cuánto puedes anunciar tu vehículo?')
 
 st.markdown('Con nuestra aplicacion puedes saber el precio óptimo para vender tu coche')
 st.markdown('¡Introduce los datos!')
+
+img= Image.open('utils/coches.jpeg')
+st.image(img)
 
 #image = Image.open("coches.jpeg")
 #st.image(image, caption=None, width=400, output_format="JPEG")
