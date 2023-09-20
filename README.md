@@ -1,4 +1,4 @@
-# bootcamp codenotch Final Project
+# Codenotch Bootcamp - Final Project
 Proyecto de machine learning sobre las ofertas de coches de segunda mano en anuncios de España. 
 El conjunto de datos es analizado y prepararado para entrenar los modelos de machine learning (carpeta EDA). 
 Analizamos seis modelos del cual elegimos el que tiene menor MAE. 
