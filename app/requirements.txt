@@ -7,4 +7,5 @@ altair
 requests
 validators
 Pillow==8.4.0
-Modelo_XGBoostRegresion
+-e ./app/utils/auxiliar
+
