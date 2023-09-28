@@ -7,6 +7,11 @@ import requests
 import pickle
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
+from streamlit_option_menu import option_menu
+
+#[theme]
+#backgroundColor="#0E117"   <- de la web en ejecucion arriba a la derecha en settings --> theme
+
 
 st.markdown(
     """
@@ -33,51 +38,66 @@ marcas = ['Opel', 'Tesla', 'SsangYong', 'KIA', 'Lexus', 'Mitsubishi',
 
 #Representamos la informacion obtenida
 
-st.title('Estimador de precios')
-st.subheader('¿Por cuánto puedes anunciar tu vehículo?')
 
-st.markdown('Con nuestra aplicacion puedes saber el precio óptimo para vender tu coche')
-st.markdown('¡Introduce los datos!')
+with st.sidebar:
+    selected = option_menu("Navegador", ['Estimador', 'Estudio de mercado'], 
+        icons=['car-front-fill', 'bar-chart-fill'], menu_icon="cast", default_index=0)  
 
-img= Image.open('utils/coches.jpeg')
-st.image(img)
+if selected == 'Estimador':
 
-#image = Image.open("coches.jpeg")
-#st.image(image, caption=None, width=400, output_format="JPEG")
+    st.title('Estimador de precios')
+    st.subheader('¿Por cuánto puedes anunciar tu vehículo?')
 
-marca = st.selectbox('Elige una marca', marcas)
-km = st.slider('¿Cuántos kms tiene?', 10000, 350000, 100000)
-edad = st.slider('¿Cuántos años tiene?', 0, 20, 5)
-fuel = st.selectbox('Tipo de combustible', ['Gasolina', 'Diésel', 'Eléctrico', 'Otros'])
-shift = st.selectbox('Tipo de cambio', ['manual', 'automatic'])
-st.markdown(f'Vehículo elegido: {marca}, Kms: {km}, Antigüedad: {edad}, Combustible: {fuel}, Cambio: {shift}' )
+    st.markdown('Con nuestra aplicacion puedes saber el precio óptimo para vender tu coche')
+    
 
-x_test = {"make": marca, "fuel": fuel, "kms": km, "shift":shift,  "antiguedad": edad}
+    with st.sidebar:
+        st.markdown('**¡Introduce los datos!** :car:')
+        marca = st.selectbox('Elige una marca', marcas)
+        km = st.slider('¿Cuántos kms tiene?', 10000, 350000, 100000)
+        edad = st.slider('¿Cuántos años tiene?', 0, 20, 5)
+        fuel = st.selectbox('Tipo de combustible', ['Gasolina', 'Diésel', 'Eléctrico', 'Otros'])
+        shift0 = st.selectbox('Tipo de cambio', ['Manual', 'Automático'])
+        cambio = {'manual':'Manual', 'automatic':'Automático'}    
+        shift = [key for key, value in cambio.items() if value == shift0][0]
+        
 
-x_test = pd.DataFrame([x_test])
+    image = Image.open('https://github.com/adrianfdezb/proyecto/main/app/coches.jpeg')
+    st.image(image, caption=None, width=510, output_format="JPEG")
 
-#LOAD MODEL
+    
 
-from utils.auxiliar import obtener_clase 
+    x_test = {"make": marca, "fuel": fuel, "kms": km, "shift":shift,  "antiguedad": edad}
 
-mi_instancia = obtener_clase()
+    x_test = pd.DataFrame([x_test])
 
-prediccion = mi_instancia.predict(x_test)
+    #LOAD MODEL
 
-#st.text(f'Precio sugerido al que puedes anunciar tu coche')
+    from utils.auxiliar import obtener_clase
 
-st.markdown("*Pulsa para conocer el precio sugerido al que puedes anunciar tu* ***coche***.")
+    mi_instancia = obtener_clase()
 
-#st.button("Reset", type="primary")
-if st.button('Calcular:'):
+    prediccion = mi_instancia.predict(x_test)
 
-    st.markdown(f'Estimación: {int(prediccion[0])} €')
-    st.markdown('''¡Mucha suerte! :money_with_wings:''')
+    #st.text(f'Precio sugerido al que puedes anunciar tu coche')
 
-else:
-    st.write(' ')
+    st.markdown(f'Vehículo elegido: {marca}, Kms: {km}, Antigüedad: {edad}, Combustible: {fuel}, Cambio: {shift0}' )
 
-st.divider()
+    st.markdown("*Pulsa para conocer el precio sugerido al que puedes anunciar tu* ***coche***.")
 
-st.title('Radiografía del mercado en España')
-st.components.v1.html("""<iframe title="Report Section" width="850" height="1000" src="https://app.powerbi.com/view?r=eyJrIjoiOWRjNWVmOGYtMzMwMy00YzY5LTliNTItZmVjYTVmMTNhY2FjIiwidCI6ImJiYjEzOGJhLWZjMDYtNDM2ZS04ODhlLTAyYmVjMzFlYTIzYSIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>""", width=850, height=1000, scrolling=False)
+    #st.button("Reset", type="primary")
+    if st.button('Calcular:'):
+
+        #st.markdown(f'Estimación: {int(prediccion[0])} €')
+        st.metric(label='**Estimación:**', value=(f'{int(prediccion[0])} €'), delta=None, delta_color="normal", help=None, label_visibility="visible")
+        st.markdown('''¡Mucha suerte! :money_with_wings:''')
+
+    else:
+        st.write(' ')
+
+#st.divider()
+
+elif selected == 'Estudio de mercado':
+
+    st.title('Radiografía del mercado en España')
+    st.components.v1.html("""<iframe title="Report Section" width="850" height="1000" src="https://app.powerbi.com/view?r=eyJrIjoiOWRjNWVmOGYtMzMwMy00YzY5LTliNTItZmVjYTVmMTNhY2FjIiwidCI6ImJiYjEzOGJhLWZjMDYtNDM2ZS04ODhlLTAyYmVjMzFlYTIzYSIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>""", width=850, height=930, scrolling=False)
