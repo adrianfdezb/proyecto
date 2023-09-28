@@ -1,7 +1,8 @@
-
 import pandas as pd 
 import numpy as np 
+import matplotlib.pyplot as plt
 import pickle
+import joblib
 from sklearn.cluster import KMeans
 from sklearn.metrics import precision_score
 from sklearn import preprocessing
@@ -11,9 +12,9 @@ from sklearn.preprocessing import StandardScaler
 class Modelo_XGBoostRegresion:
     def __init__(self):
         
-        self.le = pickle.load(open('label_encoder.sav', 'rb'))
-        self.scaler = pickle.load(open('normalizador.sav', 'rb'))
-        self.model = pickle.load(open('modelo_final.sav', 'rb'))
+        self.le = pickle.load(open('https://github.com/adrianfdezb/proyecto/blob/main/app/utils/label_encoder.sav', 'rb'))
+        self.scaler = pickle.load(open('https://github.com/adrianfdezb/proyecto/blob/main/app/utils/normalizador.sav', 'rb'))
+        self.model = pickle.load(open('https://github.com/adrianfdezb/proyecto/blob/main/app/utils/modelo_final.sav', 'rb'))
 
     def predict(self, X_new):
         # X_new llega de la misma forma que el df original
