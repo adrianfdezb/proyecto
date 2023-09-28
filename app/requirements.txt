@@ -7,6 +7,6 @@ altair
 requests
 validators
 Pillow==8.4.0
-git+https://github.com/adrianfdezb/proyecto.git@main#egg=proyecto&subdirectory=app/utils
+git+https://github.com/adrianfdezb/proyecto/app.git@main#egg=proyecto&subdirectory=utils
 
 
