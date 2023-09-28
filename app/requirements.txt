@@ -7,5 +7,6 @@ altair
 requests
 validators
 Pillow==8.4.0
-git+https://github.com/adrianfdezb/proyecto/app/utils/auxiliar.py
+git+https://github.com/adrianfdezb/proyecto.git@main#egg=proyecto&subdirectory=app/utils
+
 
