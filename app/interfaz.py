@@ -62,8 +62,8 @@ if selected == 'Estimador':
         shift = [key for key, value in cambio.items() if value == shift0][0]
         
 
-    image = Image.open('https://github.com/adrianfdezb/proyecto/main/app/coches.jpeg')
-    st.image(image, caption=None, width=510, output_format="JPEG")
+    
+    st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKl8dtgaaRVTkUzsdV1-HitzNjZ1mahaH53T7xSof7v5zMdBlC0J-gfH-Gutw9ncx10Bw&usqp=CAU', caption=None, width=510)
 
     
 
